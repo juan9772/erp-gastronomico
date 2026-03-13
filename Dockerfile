@@ -23,11 +23,15 @@ WORKDIR /app
 # Copiar el proyecto
 COPY . .
 
-# Ejecutar el script completo de construcción (composer install, npm run build, cachés y migraciones)
-RUN chmod +x bin/render-build.sh
-RUN bin/render-build.sh
+# Instalar dependencias backend y frontend, y construir Vite durante el BIT DE CONSTRUCCIÓN
+RUN composer install --prefer-dist --no-dev --optimize-autoloader --no-interaction
+RUN npm install
+RUN npm run build
+
+# Otorga permisos de ejecución al script de entrada
+RUN chmod +x bin/docker-entrypoint.sh
 
 EXPOSE 8000
 
-# Render inyecta la variable $PORT automáticamente
-CMD php artisan serve --host=0.0.0.0 --port=${PORT:-8000}
+# Usamos el script como punto de entrada (ejecutará migraciones y caché usando env vars de Render antes de iniciar)
+CMD ["bin/docker-entrypoint.sh"]
