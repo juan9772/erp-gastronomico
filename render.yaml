@@ -8,11 +8,9 @@ databases:
 services:
   - type: web
     name: erp-web
-    env: php
+    env: docker
     plan: free
     region: ohio
-    buildCommand: "./bin/render-build.sh"
-    startCommand: "php artisan serve --host=0.0.0.0 --port=$PORT"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
