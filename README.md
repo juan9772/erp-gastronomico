@@ -1,85 +1,85 @@
-# ERP Gastronómico
+# Gastronomic ERP
 
-Una solución moderna y ligera para la planificación de recursos empresariales (ERP) orientada a la industria gastronómica. Este proyecto está diseñado para ayudar a restaurantes, cafeterías y negocios afines a gestionar sus Insumos, Recetas y Productos, calculando automáticamente y en tiempo real los costos de producción.
+A modern and lightweight Enterprise Resource Planning (ERP) solution tailored for the culinary industry. This project is designed to help restaurants, cafes, and related businesses manage their Ingredients, Recipes, and Products while automatically calculating production costs in real-time.
 
-## 🚀 Características Principales
+## 🚀 Key Features
 
--   **Gestión de Insumos**: Administra materias primas con su costo unitario y unidad de medida (kg, gr, l, unidad, etc).
--   **Gestor de Productos**: Define los productos finales que vendes y asócialos a una receta base para conocer su rentabilidad real.
--   **Sistema de Recetas Dinámico**: Construye recetas agregando N cantidad de insumos.
--   **Cálculo Automático de Costos**: Gracias al `CostCalculationService`, cualquier variación en el precio de un insumo actualizará instantáneamente el costo recurrente de todas las recetas que lo utilizan y, por ende, el costo del producto final.
--   **Interfaz Moderna y Responsiva**: Construido con Tailwind CSS, garantizando una excelente usabilidad tanto en dispositivos móviles como de escritorio.
--   **Sincronización en Tiempo Real (Dev)**: Configurado con `nodemon` y `Vite (HMR)` para reflejar todo el flujo de trabajo en tu red local instantáneamente durante el desarrollo.
+-   **Ingredient Management**: Manage raw materials with their unit cost and measurement unit (kg, gr, l, unit, etc.).
+-   **Product Manager**: Define the final products you sell and link them to a base recipe to determine true profitability.
+-   **Dynamic Recipe System**: Build recipes by adding any number of ingredients.
+-   **Automatic Cost Calculation**: Powered by the `CostCalculationService`, any change in an ingredient's price instantly updates the recurring cost of all recipes using it, seamlessly updating the final product's cost.
+-   **Modern and Responsive Interface**: Built with Tailwind CSS, ensuring excellent usability on both mobile and desktop devices.
+-   **Real-Time Synchronization (Dev)**: Configured with `nodemon` and `Vite (HMR)` to instantly reflect your entire workflow on your local network during development.
 
-## 🛠️ Tecnologías Utilizadas
+## 🛠️ Tech Stack
 
 -   **Backend**: [Laravel 12](https://laravel.com)
 -   **Frontend**: [Blade](https://laravel.com/docs/blade), [Tailwind CSS](https://tailwindcss.com), [Alpine.js](https://alpinejs.dev)
--   **Base de Datos**: SQLite (configurado por defecto para fácil despliegue y desarrollo)
--   **Autenticación**: Laravel Breeze
+-   **Database**: SQLite (configured by default for easy deployment and development)
+-   **Authentication**: Laravel Breeze
 -   **Testing**: Pest PHP
--   **Herramientas Dev**: Vite, Nodemon
+-   **Dev Tools**: Vite, Nodemon
 
-## ⚙️ Instalación y Configuración Local
+## ⚙️ Local Installation & Setup
 
-Sigue estos pasos para desplegar el proyecto en tu entorno de desarrollo.
+Follow these steps to deploy the project in your local development environment.
 
-1. **Clonar el repositorio:**
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/juan9772/erp-gastronomico.git
    cd erp-gastronomico
    ```
 
-2. **Instalar dependencias de PHP:**
+2. **Install PHP dependencies:**
    ```bash
    composer install
    ```
 
-3. **Instalar dependencias de Node.js:**
+3. **Install Node.js dependencies:**
    ```bash
    npm install
    ```
 
-4. **Configurar el entorno:**
-   Copia el archivo de entorno de ejemplo y genera tu clave de aplicación.
+4. **Environment setup:**
+   Copy the example environment file and generate your application key.
    ```bash
    cp .env.example .env
    php artisan key:generate
    ```
 
-5. **Alistando la Base de Datos:**
-   Como estamos usando SQLite, simplemente asegúrate de crear el archivo y correr las migraciones.
+5. **Prepare the Database:**
+   Since we're using SQLite, simply make sure the file is created and run the migrations.
    ```bash
    touch database/database.sqlite
    php artisan migrate
    ```
 
-6. **Iniciar el Servidor (Modo Desarrollo):**
-   Para tener la mejor experiencia de desarrollo (con recarga automática mediante Nodemon y Vite corriendo en red local), ejecuta en _dos pestañas separadas de tu terminal_:
+6. **Start the Server (Development Mode):**
+   For the best development experience (with automatic reloading via Nodemon and Vite running on your local network), run this in _two separate terminal tabs_:
 
-   **Terminal 1 (Backend con Nodemon):**
+   **Terminal 1 (Backend with Nodemon):**
    ```bash
    npm run watch
    ```
-   *(Alternativamente, puedes usar el tradicional `php artisan serve`)*
+   *(Alternatively, you can use the traditional `php artisan serve`)*
 
-   **Terminal 2 (Frontend Frontend con Vite):**
+   **Terminal 2 (Frontend with Vite):**
    ```bash
    npm run dev
    ```
 
-7. **Acceder a la aplicación:**
-   Abre tu navegador y dirígete a `http://localhost:8000`. Regístrate con un nuevo usuario local y comienza a explorar el Dashboard.
+7. **Access the application:**
+   Open your browser and navigate to `http://localhost:8000`. Register a new local user and start exploring the Dashboard.
 
-## 🧪 Pruebas (Testing)
+## 🧪 Testing
 
-Este proyecto cuenta con una robusta suite de Unit y Feature Tests construidos bajo [Pest PHP](https://pestphp.com/). Los tests aseguran que el motor transaccional de cálculos de costos siempre sea exacto.
+This project features a robust Unit and Feature test suite built with [Pest PHP](https://pestphp.com/). The tests ensure that the transactional cost calculation engine remains perfectly accurate at all times.
 
-Para correr todas las pruebas:
+To run the test suite:
 ```bash
 php artisan test
 ```
 
-## 📄 Licencia
+## 📄 License
 
-Este proyecto es Open Source y se distribuye bajo la licencia [MIT](LICENSE). Eres libre de usarlo, modificarlo y distribuirlo de acuerdo con los términos de dicha licencia.
+This project is Open Source and distributed under the [MIT License](LICENSE). You are free to use, modify, and distribute it according to the terms of the license.
