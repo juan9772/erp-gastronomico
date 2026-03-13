@@ -17,7 +17,7 @@ services:
           name: erp-db
           property: connectionString
       - key: APP_KEY
-        generateValue: true
+        value: base64:j4FE1w0m4tP5kXM5kIxHcbwZHRX1jvenP68w87ClK74=
       - key: APP_ENV
         value: production
       - key: APP_DEBUG

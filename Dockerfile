@@ -28,6 +28,9 @@ RUN composer install --prefer-dist --no-dev --optimize-autoloader --no-interacti
 RUN npm install
 RUN npm run build
 
+# Make sure storage and bootstrap/cache are universally writable
+RUN chmod -R 777 storage bootstrap/cache
+
 # Otorga permisos de ejecución al script de entrada
 RUN chmod +x bin/docker-entrypoint.sh
 
